@@ -1,3 +1,3 @@
-gcc -o a.out src/main.c src/dimension.c src/array.c
+gcc -o a.out -DDEBUG=1 src/main.c src/matrix/matrix.c
 
 ./a.out

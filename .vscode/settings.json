@@ -4,6 +4,9 @@
         "string.h": "c",
         "string_view": "c",
         "stdlib.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "array.h": "c",
+        "matrix.h": "c",
+        "stddef.h": "c"
     }
 }
