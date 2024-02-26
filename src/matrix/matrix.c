@@ -32,6 +32,8 @@ lin_matrix_t *lin_matrix_unit(size_t n){
 
     int elements[n][n];
 
+    memset(elements, 0, sizeof(elements));
+
     for(int i = 0; i < n; i++) {
         elements[i][i] = 1;
     }
@@ -69,5 +71,32 @@ lin_matrix_t *lin_matrix_add(lin_matrix_t *mp1, lin_matrix_t *mp2){
     }
 
     return lin_matrix(mp1->m, mp1->n, elements);
+}
 
+lin_matrix_t *lin_matrix_smult(lin_matrix_t *mp, int scaler){
+        int elements[mp->m][mp->n];
+
+    for(int i = 1; i <= mp->m; i++) {
+        for(int j = 1; j <= mp->n; j++){
+            elements[i-1][j-1] = lin_get_matrix(mp, i, j) * scaler;
+        }
+    }
+
+    return lin_matrix(mp->m, mp->n, elements);
+}
+
+lin_matrix_t *lin_matrix_mmult(lin_matrix_t *mp1, lin_matrix_t *mp2){
+    //TODO: Check sizes
+    int elements[mp1->m][mp2->n];
+
+    for(int i = 1; i <= mp1->m; i++) {
+        for(int j = 1; j <= mp2->n; j++){
+            elements[i-1][j-1] = 0;
+            for(int x = 1; x <= mp1->n; x++){
+                elements[i-1][j-1] += lin_get_matrix(mp1, i, x) * lin_get_matrix(mp2, x, j);
+            }
+        }
+    }
+
+    return lin_matrix(mp1->m, mp2->n, elements);
 }

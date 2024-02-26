@@ -32,7 +32,8 @@ int lin_set_matrix(lin_matrix_t *mp, int i, int j, int value);
 //basic.c
 
 lin_matrix_t *lin_matrix_add(lin_matrix_t *mp1, lin_matrix_t *mp2);
-
+lin_matrix_t *lin_matrix_smult(lin_matrix_t *mp, int scaler);
+lin_matrix_t *lin_matrix_mmult(lin_matrix_t *mp1, lin_matrix_t *mp2);
 
 
 #endif
