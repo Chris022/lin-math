@@ -1,4 +1,5 @@
 #include "matrix/matrix.h"
+#include "matrix/gauss.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -35,12 +36,11 @@ void main(){
     lin_matrix_t *mat_2 = lin_matrix_clone(mat_1);
 
     lin_set_matrix(mat_1,1,1,100);
-
-    lin_matrix_t *mat_3 = lin_matrix_add(mat_1,mat_2);
-    lin_matrix_t *mat_4 = lin_matrix_smult(mat_3,2);
-    lin_matrix_t *mat_5 = lin_matrix_mmult(mat_1, mat_4);
+    lin_set_matrix(mat_1,2,2,60);
+    lin_set_matrix(mat_1,1,2,55);
+    lin_set_matrix(mat_1,2,1,40);
 
     printm(mat_1);
-    printm(mat_2);
-    printm(mat_3);
+    lin_gauss_jordan_algo(mat_1);
+    printm(mat_1);
 }
