@@ -41,6 +41,6 @@ void main(){
     lin_matrix_t *mat_5 = lin_matrix_mmult(mat_1, mat_4);
 
     printm(mat_1);
-    printm(mat_4);
-    printm(mat_5);
+    printm(mat_2);
+    printm(mat_3);
 }

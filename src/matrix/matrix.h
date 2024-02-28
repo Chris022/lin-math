@@ -28,6 +28,10 @@ int lin_set_matrix(lin_matrix_t *mp, int i, int j, int value);
 
 #define LIN_1D_MATRIX(mp, i, j) ((i-1)*(mp)->m+(j-1)) // converts 2D Coordinates to 1D
 
+#define LIN_LOOP_MATRIX(mp) \
+    for(int i = 1; i <= mp1->m; i++) for(int j = 1; j <= mp1->n; j++) \
+
+
 
 //basic.c
 
