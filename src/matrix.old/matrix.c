@@ -4,8 +4,9 @@
 #include <assert.h>
 #include <string.h>
 
+
 lin_matrix_t * lin_matrix(size_t m, size_t n, M_TYPE elements[m][n]){
-    lin_matrix_t *mat = malloc(sizeof(lin_matrix_t)+sizeof(M_TYPE[m][n]));
+    lin_matrix_t *mat = calloc(sizeof(lin_matrix_t)+sizeof(M_TYPE[m][n]));
 
     assert(mat != NULL);
 
@@ -14,18 +15,6 @@ lin_matrix_t * lin_matrix(size_t m, size_t n, M_TYPE elements[m][n]){
     memcpy(mat->elements,elements,sizeof(M_TYPE[m][n]));
 
     return mat;
-}
-
-lin_matrix_t *lin_matrix_zero(size_t m, size_t n){
-    M_TYPE elements[m][n];
-
-    for(int i = 0; i < m; i++) {
-        for(int j = 0; j < n; j++){
-            elements[i][j] = 0;
-        }
-    }
-
-    return lin_matrix(m, n, elements);
 }
 
 lin_matrix_t *lin_matrix_unit(size_t n){
@@ -49,6 +38,10 @@ lin_matrix_t *lin_matrix_clone(lin_matrix_t *matrix){
     return mat;
 }
 
+void lin_matrix_delete(lin_matrix_t *matrix){
+
+}
+
 int lin_get_matrix(lin_matrix_t *mp, int i, int j){
     //TODO: Check bounds
     return mp->elements[LIN_1D_MATRIX(mp, i, j)];
@@ -58,7 +51,7 @@ int lin_set_matrix(lin_matrix_t *mp, int i, int j, M_TYPE value){
     mp->elements[LIN_1D_MATRIX(mp, i, j)] = value;
 }
 
-
+// Basic Math Operations: Addition, Substraction, Multiplication
 lin_matrix_t *lin_matrix_add(lin_matrix_t *mp1, lin_matrix_t *mp2){
     //TODO: Check sizes
     M_TYPE elements[mp1->m][mp1->n];

@@ -41,6 +41,6 @@ void main(){
     lin_set_matrix(mat_1,2,1,40);
 
     printm(mat_1);
-    lin_gauss_jordan_algo(mat_1);
+    //lin_gauss_jordan_algo(mat_1);
     printm(mat_1);
 }

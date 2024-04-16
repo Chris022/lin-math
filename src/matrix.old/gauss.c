@@ -31,7 +31,7 @@ int lin_gauss_row_addition(lin_matrix_t *mp, int i1, int i2, M_TYPE lambda){
     }
 }
 
-lin_matrix_t * lin_gauss_jordan_algo(lin_matrix_t *mp){
+lin_matrix_t * lin_gauss_elimination_algo(lin_matrix_t *mp){
     for(int i = 1; i <= mp->m; i++){
         //Step 1: Check if element is 0 and if it is, swap row with last row
         //  Repeat until element is not 0 anymore
