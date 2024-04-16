@@ -4,9 +4,9 @@ Lin-Math is a Computer Algebra System focused on Linear Algebra. It consist out 
 
 ## Documentation
 
-### Numericals
-Lin-Matt uses its own numerical data type for storing numbers. This has the advantage of allowing high-precision - symbolic calculations.
-All functions dealing with numericals are inside the `nums` folder.
+### Matrix
+Probably the most important object Lin-Math provides is the Matrix. All functions that deal with it are defined in the `matrix` folder.
+
 
 ## License
 
